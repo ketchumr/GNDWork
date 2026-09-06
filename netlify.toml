@@ -1,0 +1,16 @@
+# Netlify configuration for the Geek Next Door frontend.
+# Convex remains the backend — this only hosts the built React app.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Single-page-app fallback: send all routes to index.html so client-side
+# routing and page refreshes don't 404.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# NOTE: set VITE_CONVEX_URL in Netlify → Site settings → Environment variables
+# to your PRODUCTION Convex deployment URL (from `npx convex deploy`).
